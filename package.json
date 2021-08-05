@@ -1,0 +1,8 @@
+{
+  "name": "Shop.In",
+  "version": "1.0.0",
+  "description": "This is shopping cart website made with MERN stack",
+  "main": "server.js",
+  "author": "Muhammed Rahif",
+  "license": "MIT"
+}
