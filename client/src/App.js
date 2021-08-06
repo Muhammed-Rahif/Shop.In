@@ -15,21 +15,19 @@ function App() {
 
   return (
     <Router>
-      <div className="body">
-        <Switch>
-          <NavBar />
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Footer />
-        </Switch>
-      </div>
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/signup">
+          <Signup />
+        </Route>
+      </Switch>
+      <Footer />
     </Router>
   );
 }
