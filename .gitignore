@@ -13,8 +13,7 @@ client/coverage
 coverage
 
 # production
-client/build
-build
+# client/build
 
 # misc
 client/.DS_Store

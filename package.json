@@ -4,5 +4,12 @@
   "description": "This is shopping cart website made with MERN stack",
   "main": "server.js",
   "author": "Muhammed Rahif",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "devStart": "nodemon server.js"
+  }
 }
