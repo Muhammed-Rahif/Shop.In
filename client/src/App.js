@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
-import FullScreenLoading from "./components/FullScreenLoading/FullScreenLoading";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import { AutoInit } from "materialize-css";
 
 function App() {
-  return <FullScreenLoading></FullScreenLoading>;
+  useEffect(() => {
+    AutoInit();
+  }, []);
+
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;

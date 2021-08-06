@@ -1,0 +1,22 @@
+#navbar .brand-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+#navbar .brand-logo .logo-text {
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin: 0 0 0 0.45rem;
+}
+
+#navbar .dropdown-trigger,
+.btn {
+  text-transform: none;
+  color: var(--light);
+}
+
+.sidenav li > a > i.material-icons {
+  color: var(--light);
+  margin: 0 0 0 0;
+}
