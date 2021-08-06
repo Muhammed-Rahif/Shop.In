@@ -1,0 +1,22 @@
+#login_content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  min-height: 80vh;
+}
+
+#login_content .title {
+  text-align: center;
+  font-weight: 600;
+}
+
+#login_content form .btn {
+  margin-right: 1rem;
+}
+
+#login_content form .signup-link {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
