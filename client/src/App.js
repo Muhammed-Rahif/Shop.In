@@ -15,8 +15,8 @@ function App() {
 
   return (
     <Router>
-      <Switch>
-        <div className="body">
+      <div className="body">
+        <Switch>
           <NavBar />
           <Route exact path="/">
             <Home />
@@ -28,8 +28,8 @@ function App() {
             <Signup />
           </Route>
           <Footer />
-        </div>
-      </Switch>
+        </Switch>
+      </div>
     </Router>
   );
 }

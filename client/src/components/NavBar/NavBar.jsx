@@ -36,7 +36,7 @@ function NavBar(props) {
                 </a>
                 <ul id="dropdown1" className="dropdown-content">
                   <li>
-                    <a href="./">Logout</a>
+                    <Link to="/logout">Logout</Link>
                   </li>
                 </ul>
               </li>
@@ -46,7 +46,7 @@ function NavBar(props) {
       </div>
       <ul id="dropdown2" className="dropdown-content">
         <li>
-          <a href="./">Logout</a>
+          <Link to="/">Logout</Link>
         </li>
       </ul>
       <ul className="sidenav" id="mob-sidenav">
