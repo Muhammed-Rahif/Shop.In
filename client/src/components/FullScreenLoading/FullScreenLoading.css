@@ -1,4 +1,4 @@
-#fullscreen-loading {
+#fullscreen_loading {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +12,7 @@
   z-index: 99;
 }
 
-#fullscreen-loading .progress {
+#fullscreen_loading .progress {
   width: 80px;
   background-color: var(--primary);
   margin: 0px;

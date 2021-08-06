@@ -4,7 +4,7 @@ import { colors } from "../../constants/colors";
 
 export default function App({ text = "Getting Ready!" }) {
   return (
-    <section id="fullscreen-loading">
+    <section id="fullscreen_loading">
       <img width="100" src="logo512.png" alt="Shop.In" />
       <div className="progress">
         <div
