@@ -12,6 +12,10 @@
   padding: 12px 0 0 0;
 }
 
+#product_card .btn {
+  font-family: "Spartan", sans-serif;
+}
+
 #product_card .btn i.left {
   margin: 0 0 0 0;
 }
