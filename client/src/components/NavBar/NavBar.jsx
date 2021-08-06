@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function NavBar(props) {
   return (
     <>
-      <div class="navbar-fixed">
+      <div className="navbar-fixed">
         <nav id="navbar">
           <div className="nav-wrapper">
             <Link to="/" className="brand-logo">
@@ -18,7 +18,7 @@ function NavBar(props) {
             <ul className="right hide-on-med-and-down">
               <li>
                 <Link to="/cart">
-                  Cart<span class="new badge">1</span>
+                  Cart<span className="new badge">1</span>
                 </Link>
               </li>
               <li>

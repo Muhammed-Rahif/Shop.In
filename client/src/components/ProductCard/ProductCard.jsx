@@ -14,10 +14,10 @@ function ProductCard({
 
   return (
     <div id="product_card">
-      <div class="card">
-        <div class="card-image">
+      <div className="card">
+        <div className="card-image">
           <img
-            class="activator"
+            className="activator"
             src={imageSrc}
             alt={title}
             onLoad={() => {
@@ -30,35 +30,35 @@ function ProductCard({
             </div>
           )}
         </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">
+        <div className="card-content">
+          <span className="card-title activator grey-text text-darken-4">
             {title}
-            <i class="material-icons right">more_vert</i>
+            <i className="material-icons right">more_vert</i>
           </span>
           <p>Price : Rs.{price}</p>
-          <span class="product-type grey-text text-darken-4">
+          <span className="product-type grey-text text-darken-4">
             Type : {type}
           </span>
           <div className="actions">
-            <button class="waves-effect waves-light btn">
-              <i class="material-icons left">thumb_up</i>
+            <button className="waves-effect waves-light btn">
+              <i className="material-icons left">thumb_up</i>
             </button>
-            <button class="waves-effect waves-light btn">
-              <i class="material-icons left">add</i> Add to Cart
+            <button className="waves-effect waves-light btn">
+              <i className="material-icons left">add</i> Add to Cart
             </button>
           </div>
         </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">
+        <div className="card-reveal">
+          <span className="card-title grey-text text-darken-4">
             {title}
-            <i class="material-icons right">close</i>
+            <i className="material-icons right">close</i>
           </span>
           <br />
           <p>{description}</p>
           <br />
           <div>
             <p>Price : Rs.{price}</p>
-            <span class="product-type grey-text text-darken-4">
+            <span className="product-type grey-text text-darken-4">
               Type : {type}
             </span>
           </div>
