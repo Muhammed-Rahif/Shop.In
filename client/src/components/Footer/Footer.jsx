@@ -46,7 +46,7 @@ function Footer(props) {
       </div>
       <div className="footer-copyright">
         <div className="container">
-          © 2021 Copyright Alrights Reserved
+          © <b>Shop.In</b> 2021 Copyright Alrights Reserved
           <a
             className="grey-text text-lighten-4 right"
             href="https://www.github.com"
