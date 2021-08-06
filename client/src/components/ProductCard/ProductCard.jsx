@@ -23,6 +23,7 @@ function ProductCard({
             onLoad={() => {
               setImageLoading(false);
             }}
+            style={{ display: imageLoading && "none" }}
           />
           {imageLoading && (
             <div className="image-loading-wrapper">
