@@ -23,3 +23,13 @@ body {
 nav .brand-logo {
   width: max-content;
 }
+
+#add_product_form {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.btn {
+  text-transform: none;
+  font-family: "Spartan", sans-serif;
+}

@@ -1,1 +1,34 @@
-<h1>Add product page</h1>
+<form method="POST" action="/admin/add-product" id="add_product_form" class="container center">
+    <div class="row">
+        <h5><b>Add product</b></h5>
+        <div class="input-field col s12">
+            <input required name="name" id="product_name" type="text" class="validate" data-length="24">
+            <label class="active" for="product_name">Product Name</label>
+        </div>
+        <div class="input-field col s12">
+            <textarea name="description" id="product_description" class="materialize-textarea"
+                data-length="1200"></textarea>
+            <label for="product_description">Product Description</label>
+        </div>
+        <div class="input-field col s12">
+            <input required name="price" id="product_price" type="number" class="validate">
+            <label class="active" for="product_price" data-length="14">Product Price</label>
+        </div>
+        <div class="input-field col s12">
+            <input required name="type" id="product_type" type="text" class="validate">
+            <label class="active" for="product_type" data-length="28">Product Type</label>
+        </div>
+        <div class="file-field input-field col s12">
+            <div class="btn">
+                <span>File</span>
+                <input required type="file" accept="image/png">
+            </div>
+            <div class="file-path-wrapper">
+                <input required name="image" class="file-path validate" type="text">
+            </div>
+        </div>
+        <div class="actions">
+            <input class="btn-large btn right" type="submit" value="Add Product">
+        </div>
+    </div>
+</form>

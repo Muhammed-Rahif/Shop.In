@@ -9,8 +9,8 @@ const MongoStore = require("connect-mongo");
 const expressLayouts = require("express-ejs-layouts");
 
 // Body parser
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Session config
 const ONE_DAY = 24 * 60 * 60 * 1000;
@@ -40,8 +40,8 @@ db.connect();
 const clientRouters = ["/", "/signup", "/login", "/cart", "/checkout"];
 
 // Routers
-const userRouters = require("./routers/api");
 const adminRouters = require("./routers/admin");
+const userRouters = require("./routers/api");
 
 app.use("/api", userRouters);
 app.use("/admin", adminRouters);
