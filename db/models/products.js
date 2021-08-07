@@ -6,6 +6,7 @@ const productSchema = new mongoose.Schema({
   type: { type: String, required: true },
   price: { type: Number, default: 0 },
   modified: { type: Date, default: Date.now },
+  imageEncode: { type: mongoose.Schema.Types.Mixed },
 });
 
 module.exports = mongoose.model("Product", productSchema, "products");

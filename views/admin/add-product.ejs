@@ -1,4 +1,9 @@
-<form method="POST" action="/admin/add-product" id="add_product_form" class="container center">
+<!-- Filpond css -->
+<link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
+
+<form method="POST" enctype="application/x-www-form-urlencoded" action="/admin/add-product" id="add_product_form"
+    class="container center">
     <div class="row">
         <h5><b>Add product</b></h5>
         <div class="input-field col s12">
@@ -19,16 +24,37 @@
             <label class="active" for="product_type" data-length="28">Product Type</label>
         </div>
         <div class="file-field input-field col s12">
-            <div class="btn">
-                <span>File</span>
-                <input required type="file" accept="image/png">
-            </div>
-            <div class="file-path-wrapper">
-                <input required name="image" class="file-path validate" type="text">
-            </div>
+            <input required name="imageEncode" type="file" accept="image/png">
         </div>
         <div class="actions">
             <input class="btn-large btn right" type="submit" value="Add Product">
         </div>
     </div>
 </form>
+
+<!-- Filepond -->
+<script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script>
+
+    // Register the plugin
+    FilePond.registerPlugin(FilePondPluginFileValidateSize);
+    FilePond.registerPlugin(FilePondPluginImagePreview);
+    FilePond.registerPlugin(FilePondPluginFileValidateType);
+    FilePond.registerPlugin(FilePondPluginFileEncode);
+
+    // Get a reference to the file input element
+    const inputElement = document.querySelector('input[type="file"]');
+
+    // Create a FilePond instance
+    const pond = FilePond.create(inputElement, { required: true, maxFileSize: "250KB", acceptedFileTypes: ['image/png'] });
+
+</script>
+<style>
+    .filepond--root .filepond--credits[style] {
+        display: none;
+    }
+</style>

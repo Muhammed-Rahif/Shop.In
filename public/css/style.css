@@ -33,3 +33,12 @@ nav .brand-logo {
   text-transform: none;
   font-family: "Spartan", sans-serif;
 }
+
+#view_products .row,
+#view_products .row .col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+  flex-direction: column;
+}

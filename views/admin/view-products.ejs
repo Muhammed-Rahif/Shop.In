@@ -1,0 +1,45 @@
+<section id="view_products">
+    <div class="row">
+        <div class="col m12 s12">
+            <h4><b>Products</b></h4>
+            <table class="products-table striped highlight responsive-table centered z-depth-1">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Modified</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% for(let i=0; i < products.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= products[i].name %>
+                            </td>
+                            <td>
+                                <%= products[i].price %>
+                            </td>
+                            <td>
+                                <%= products[i].description %>
+                            </td>
+                            <td>
+                                <%= products[i].modified.toLocaleString("en-US"); %>
+                            </td>
+                            <td><img width="100"
+                                    src="data:<%= products[i].imageEncode.type %>;base64,<%= products[i].imageEncode.data %>"
+                                    alt="<%= products[i].name %>" /></td>
+                            <td>
+                                <a href="" class="btn">Edit</a>
+                                <a href="" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
