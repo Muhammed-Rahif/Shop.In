@@ -29,7 +29,8 @@ nav .brand-logo {
   padding-bottom: 2rem;
 }
 
-.btn {
+.btn,
+.btn-flat {
   text-transform: none;
   font-family: "Spartan", sans-serif;
 }

@@ -10,7 +10,7 @@ const expressLayouts = require("express-ejs-layouts");
 
 // Body parser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
 // Session config
 const ONE_DAY = 24 * 60 * 60 * 1000;

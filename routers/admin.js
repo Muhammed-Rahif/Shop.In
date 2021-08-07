@@ -22,4 +22,11 @@ router.post("/add-product", (req, res) => {
     .catch((err) => res.status(400));
 });
 
+router.delete("/delete-product/:id", (req, res) => {
+  adminHelpers
+    .deleteProduct(req.params.id)
+    .then((response) => res.json(response))
+    .catch((err) => res.json(err));
+});
+
 module.exports = router;

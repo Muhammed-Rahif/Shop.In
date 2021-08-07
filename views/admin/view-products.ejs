@@ -16,7 +16,7 @@
 
                 <tbody>
                     <% for(let i=0; i < products.length; i++) { %>
-                        <tr>
+                        <tr id="<%= products[i]._id %>_product">
                             <td>
                                 <%= products[i].name %>
                             </td>
@@ -34,7 +34,25 @@
                                     alt="<%= products[i].name %>" /></td>
                             <td>
                                 <a href="" class="btn">Edit</a>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <!-- Modal Trigger -->
+                                <a class="waves-effect waves-light btn modal-trigger" href="#modal<%=i%>"
+                                    data-target="modal<%=i%>">Delete</a>
+
+                                <!-- Modal Structure -->
+                                <div id="modal<%=i%>" class="modal">
+                                    <div class="modal-content">
+                                        <h4>Are you sure ?</h4>
+                                        <p style="white-space: normal;">Are you want to
+                                            delete '<%= products[i].name %>'
+                                                ? Once you deleted you can't
+                                                recover it. So make sure it.</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="modal-close waves-effect btn-flat">No</button>
+                                        <button class="modal-close waves-effect btn red"
+                                            onclick="deleteProduct('<%= products[i]._id %>')">Yes</button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <% } %>
@@ -43,3 +61,15 @@
         </div>
     </div>
 </section>
+
+<script>
+    const deleteProduct = (id) => {
+        axios.delete("/admin/delete-product/" + id).then(response => {
+            (response.status === 200)
+                ? document.getElementById(id + "_product").remove()
+                : alert("Something went wrong!");
+        }).catch(err => {
+            alert("Something went wrong! Error :- " + err.message);
+        })
+    }
+</script>

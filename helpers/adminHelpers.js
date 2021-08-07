@@ -13,4 +13,10 @@ module.exports = {
         .then((products) => resolve(products))
         .catch((err) => reject(err));
     }),
+  deleteProduct: (id) =>
+    new Promise((resolve, reject) => {
+      ProductModel.findByIdAndDelete(id).then((product) =>
+        resolve({ status: 200, product })
+      );
+    }).catch((err) => reject(err)),
 };

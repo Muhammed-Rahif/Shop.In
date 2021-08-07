@@ -1,4 +1,6 @@
 $(document).ready(function () {
-  var elems = document.querySelectorAll(".sidenav");
-  M.Sidenav.init(elems);
+  let sidenavsElems = document.querySelectorAll(".sidenav");
+  M.Sidenav.init(sidenavsElems);
+  let modelsElems = document.querySelectorAll(".modal");
+  M.Modal.init(modelsElems);
 });
