@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const ProductModel = require("../db/models/products");
+const adminHelpers = require("../helpers/adminHelpers");
 
 // Rendering add product page
 router.get("/add-product", (req, res) => {
@@ -10,13 +10,10 @@ router.get("/add-product", (req, res) => {
 // Getting the new product
 router.post("/add-product", (req, res) => {
   let productData = req.body;
-  ProductModel.create(productData)
-    .then((product) => {
-      console.log({ product });
-    })
-    .catch((err) => {
-      console.log({ err });
-    });
+  adminHelpers
+    .addProduct(productData)
+    .then((response) => res.redirect("/admin"))
+    .catch((err) => res.status(400));
 });
 
 module.exports = router;
