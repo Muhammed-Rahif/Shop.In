@@ -41,7 +41,7 @@ const clientRouters = ["/", "/signup", "/login", "/cart", "/checkout"];
 
 // Routers
 const adminRouters = require("./routers/admin");
-const userRouters = require("./routers/api");
+const userRouters = require("./routers/user");
 
 app.use("/api", userRouters);
 app.use("/admin", adminRouters);
