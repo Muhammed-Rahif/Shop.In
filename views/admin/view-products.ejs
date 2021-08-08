@@ -2,62 +2,66 @@
     <div class="row">
         <div class="col m12 s12">
             <h4><b>Products</b></h4>
-            <table class="products-table striped highlight responsive-table centered z-depth-1">
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                        <th>Modified</th>
-                        <th>Image</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% for(let i=0; i < products.length; i++) { %>
-                        <tr id="<%= products[i]._id %>_product">
-                            <td>
-                                <%= products[i].name %>
-                            </td>
-                            <td>
-                                <%= products[i].price %>
-                            </td>
-                            <td>
-                                <%= products[i].description %>
-                            </td>
-                            <td>
-                                <%= products[i].modified.toLocaleString("en-US"); %>
-                            </td>
-                            <td><img width="100"
-                                    src="data:<%= products[i].imageEncode.type %>;base64,<%= products[i].imageEncode.data %>"
-                                    alt="<%= products[i].name %>" /></td>
-                            <td>
-                                <a href="/admin/edit-product/<%= products[i]._id %>" class="btn">Edit</a>
-                                <!-- Modal Trigger -->
-                                <a class="waves-effect waves-light btn modal-trigger" href="#modal<%=i%>"
-                                    data-target="modal<%=i%>">Delete</a>
-
-                                <!-- Modal Structure -->
-                                <div id="modal<%=i%>" class="modal">
-                                    <div class="modal-content">
-                                        <h4>Are you sure ?</h4>
-                                        <p style="white-space: normal;">Are you want to
-                                            delete '<%= products[i].name %>'
-                                                ? Once you deleted you can't
-                                                recover it. So make sure it.</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button class="modal-close waves-effect btn-flat">No</button>
-                                        <button class="modal-close waves-effect btn red"
-                                            onclick="deleteProduct('<%= products[i]._id %>')">Yes</button>
-                                    </div>
-                                </div>
-                            </td>
+            <%if (products.length> 0) { %>
+                <table class="products-table striped highlight responsive-table centered z-depth-1">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Modified</th>
+                            <th>Image</th>
+                            <th>Actions</th>
                         </tr>
-                        <% } %>
-                </tbody>
-            </table>
+                    </thead>
+
+                    <tbody>
+                        <% for(let i=0; i < products.length; i++) { %>
+                            <tr id="<%= products[i]._id %>_product">
+                                <td>
+                                    <%= products[i].name %>
+                                </td>
+                                <td>
+                                    <%= products[i].price %>
+                                </td>
+                                <td>
+                                    <%= products[i].description %>
+                                </td>
+                                <td>
+                                    <%= products[i].modified.toLocaleString("en-US"); %>
+                                </td>
+                                <td><img width="100"
+                                        src="data:<%= products[i].imageEncode.type %>;base64,<%= products[i].imageEncode.data %>"
+                                        alt="<%= products[i].name %>" /></td>
+                                <td>
+                                    <a href="/admin/edit-product/<%= products[i]._id %>" class="btn">Edit</a>
+                                    <!-- Modal Trigger -->
+                                    <a class="waves-effect waves-light btn modal-trigger red" href="#modal<%=i%>"
+                                        data-target="modal<%=i%>">Delete</a>
+
+                                    <!-- Modal Structure -->
+                                    <div id="modal<%=i%>" class="modal">
+                                        <div class="modal-content">
+                                            <h4>Are you sure ?</h4>
+                                            <p style="white-space: normal;">Are you want to
+                                                delete '<%= products[i].name %>'
+                                                    ? Once you deleted you can't
+                                                    recover it. So make it sure.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="modal-close waves-effect btn-flat">No</button>
+                                            <button class="modal-close waves-effect btn red"
+                                                onclick="deleteProduct('<%= products[i]._id %>')">Yes</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                    <h6><b>No product to show! <a href="/admin/add-product">Add product</a> now!</b></h6>
+                    <% } %>
         </div>
     </div>
 </section>
