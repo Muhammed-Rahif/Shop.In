@@ -9,7 +9,7 @@ const MongoStore = require("connect-mongo");
 const expressLayouts = require("express-ejs-layouts");
 
 // Body parser
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
 // Session config
