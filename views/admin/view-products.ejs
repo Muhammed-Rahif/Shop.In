@@ -33,7 +33,7 @@
                                     src="data:<%= products[i].imageEncode.type %>;base64,<%= products[i].imageEncode.data %>"
                                     alt="<%= products[i].name %>" /></td>
                             <td>
-                                <a href="" class="btn">Edit</a>
+                                <a href="/admin/edit-product/<%= products[i]._id %>" class="btn">Edit</a>
                                 <!-- Modal Trigger -->
                                 <a class="waves-effect waves-light btn modal-trigger" href="#modal<%=i%>"
                                     data-target="modal<%=i%>">Delete</a>

@@ -2,32 +2,34 @@
 <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
 <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
 
-<form method="POST" enctype="application/x-www-form-urlencoded" action="/admin/add-product" id="add_product_form"
-    class="container center">
+<form method="POST" enctype="application/x-www-form-urlencoded" action="/admin/edit-product/<%= existProduct._id %>"
+    id="add_product_form" class="container center">
     <div class="row">
-        <h5><b>Add product</b></h5>
+        <h5><b>Edit product</b></h5>
         <div class="input-field col s12">
-            <input required name="name" id="product_name" type="text" class="validate" data-length="24">
+            <input value="<%= existProduct.name %>" required name="name" id="product_name" type="text" class="validate"
+                data-length="24">
             <label class="active" for="product_name">Product Name</label>
         </div>
         <div class="input-field col s12">
             <textarea name="description" id="product_description" class="materialize-textarea"
-                data-length="1200"></textarea>
+                data-length="1200"><%= existProduct.description %></textarea>
             <label for="product_description">Product Description</label>
         </div>
         <div class="input-field col s12">
-            <input required name="price" id="product_price" type="number" class="validate">
+            <input value="<%= existProduct.price %>" required name="price" id="product_price" type="number"
+                class="validate">
             <label class="active" for="product_price" data-length="14">Product Price</label>
         </div>
         <div class="input-field col s12">
-            <input required name="type" id="product_type" type="text" class="validate">
+            <input value="<%= existProduct.type %>" required name="type" id="product_type" type="text" class="validate">
             <label class="active" for="product_type" data-length="28">Product Type</label>
         </div>
         <div class="file-field input-field col s12">
             <input required name="imageEncode" type="file" accept="image/png">
         </div>
         <div class="actions">
-            <input class="btn-large btn right" type="submit" value="Add Product">
+            <input class="btn-large btn right" type="submit" value="Update Product">
         </div>
     </div>
 </form>
@@ -51,6 +53,9 @@
 
     // Create a FilePond instance
     const pond = FilePond.create(inputElement, { required: true, maxFileSize: "1500KB", acceptedFileTypes: ['image/png'] });
+
+    // Setting existing product's image to file input
+    pond.addFile('data:<%= existProduct.imageEncode.type %>;base64,<%= existProduct.imageEncode.data %>');
 
 </script>
 <style>

@@ -19,4 +19,16 @@ module.exports = {
         resolve({ status: 200, product })
       );
     }).catch((err) => reject(err)),
+  getProduct: (id) =>
+    new Promise((resolve, reject) => {
+      ProductModel.findById(id)
+        .then((product) => resolve(product))
+        .catch((err) => reject(err));
+    }),
+  updateProduct: (id, product) =>
+    new Promise((resolve, reject) => {
+      ProductModel.findByIdAndUpdate(id, product)
+        .then((product) => resolve(product))
+        .catch((err) => reject(err));
+    }),
 };

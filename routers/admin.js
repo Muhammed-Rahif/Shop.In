@@ -22,11 +22,28 @@ router.post("/add-product", (req, res) => {
     .catch((err) => res.status(400));
 });
 
+// Deleting a product
 router.delete("/delete-product/:id", (req, res) => {
   adminHelpers
     .deleteProduct(req.params.id)
     .then((response) => res.json(response))
     .catch((err) => res.json(err));
+});
+
+// Rendering edit product page with a product data
+router.get("/edit-product/:id", async (req, res) => {
+  let existProduct = await adminHelpers.getProduct(req.params.id);
+  res.render("admin/edit-product", { existProduct });
+});
+
+// Updating a existing product
+router.post("/edit-product/:id", (req, res) => {
+  let id = req.params.id;
+  let productData = req.body;
+  productData.imageEncode = JSON.parse(productData.imageEncode);
+  adminHelpers
+    .updateProduct(id, productData)
+    .then((product) => res.redirect("/admin"));
 });
 
 module.exports = router;
