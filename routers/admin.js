@@ -41,6 +41,7 @@ router.post("/edit-product/:id", (req, res) => {
   let id = req.params.id;
   let productData = req.body;
   productData.imageEncode = JSON.parse(productData.imageEncode);
+  productData.modified = Date.now();
   adminHelpers
     .updateProduct(id, productData)
     .then((product) => res.redirect("/admin"));
