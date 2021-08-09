@@ -24,7 +24,7 @@
                                 <td>
                                     <%= products[i].price %>
                                 </td>
-                                <td>
+                                <td class="description">
                                     <%= products[i].description %>
                                 </td>
                                 <td>
@@ -34,7 +34,8 @@
                                         src="data:<%= products[i].imageEncode.type %>;base64,<%= products[i].imageEncode.data %>"
                                         alt="<%= products[i].name %>" /></td>
                                 <td>
-                                    <a href="/admin/edit-product/<%= products[i]._id %>" class="btn">Edit</a>
+                                    <a style="margin-bottom: 0.25rem;" href="/admin/edit-product/<%= products[i]._id %>"
+                                        class="btn">Edit</a>
                                     <!-- Modal Trigger -->
                                     <a class="waves-effect waves-light btn modal-trigger red" href="#modal<%=i%>"
                                         data-target="modal<%=i%>">Delete</a>

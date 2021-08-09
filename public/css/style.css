@@ -43,3 +43,15 @@ nav .brand-logo {
   margin-left: 0;
   flex-direction: column;
 }
+
+table td.description {
+  max-width: 36rem;
+  white-space: pre-wrap;
+}
+
+@media only screen and (max-width: 767px) {
+  table td.description {
+    max-width: 28rem;
+    white-space: pre-wrap;
+  }
+}
