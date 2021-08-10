@@ -47,4 +47,9 @@ router.post("/edit-product/:id", (req, res) => {
     .then((product) => res.redirect("/admin"));
 });
 
+router.post("/get-products", async (req, res) => {
+  let products = await adminHelpers.getProducts();
+  res.json(products);
+});
+
 module.exports = router;

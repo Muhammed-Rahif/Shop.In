@@ -3,26 +3,26 @@
         <div class="col m12 s12">
             <h4><b>Products</b></h4>
             <%if (products.length> 0) { %>
-                <table class="products-table striped highlight responsive-table centered z-depth-1">
+                <table class="products-table striped responsive-table z-depth-1">
                     <thead>
                         <tr>
                             <th>Product</th>
                             <th>Price</th>
                             <th>Description</th>
-                            <th>Modified</th>
+                            <th>Last Modified</th>
                             <th>Image</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody id="table_body">
                         <% for(let i=0; i < products.length; i++) { %>
                             <tr id="<%= products[i]._id %>_product">
                                 <td>
                                     <%= products[i].name %>
                                 </td>
                                 <td>
-                                    <%= products[i].price %>
+                                    ₹ <%= products[i].price %>
                                 </td>
                                 <td class="description">
                                     <%= products[i].description %>
@@ -34,8 +34,7 @@
                                         src="data:<%= products[i].imageEncode.type %>;base64,<%= products[i].imageEncode.data %>"
                                         alt="<%= products[i].name %>" /></td>
                                 <td>
-                                    <a style="margin-bottom: 0.25rem;" href="/admin/edit-product/<%= products[i]._id %>"
-                                        class="btn">Edit</a>
+                                    <a href="/admin/edit-product/<%= products[i]._id %>" class="btn">Edit</a>
                                     <!-- Modal Trigger -->
                                     <a class="waves-effect waves-light btn modal-trigger red" href="#modal<%=i%>"
                                         data-target="modal<%=i%>">Delete</a>
@@ -71,7 +70,7 @@
     const deleteProduct = (id) => {
         axios.delete("/admin/delete-product/" + id).then(response => {
             (response.status === 200)
-                ? document.getElementById(id + "_product").remove()
+                ? $(`#${id}_product`).remove() // Removing the deleted product from html 
                 : alert("Something went wrong!");
         }).catch(err => {
             alert("Something went wrong! Error :- " + err.message);

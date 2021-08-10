@@ -1,19 +1,35 @@
-<nav>
-    <div class="nav-wrapper">
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <a href="#" class="brand-logo"><img class="left" src="/images/logo192.png" width="60" alt=""><b><small>Admin
-                    Panel</small></b></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/admin/add-product">Add product</a></li>
-            <li><a href="/admin">Products</a></li>
-            <li><a href="">Users</a></li>
-            <li><a href="">Orders</a></li>
-        </ul>
-    </div>
-</nav>
-<ul class="sidenav" id="mobile-demo">
-    <li><a href="/admin/add-product">Add product</a></li>
-    <li><a href="/admin">Products</a></li>
-    <li><a href="">Users</a></li>
-    <li><a href="">Orders</a></li>
-</ul>
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" data-target="mobile_sidenav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="#" class="brand-logo"><img class="left" src="/images/logo192.png" width="60" alt=""><b><small>Admin
+                        Panel</small></b></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <div class="search-bar left">
+                    <div class="input-field">
+                        <input id="search" type="search" required placeholder="Search product...">
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons" onclick="closeSearchBar();">close</i>
+                    </div>
+                </div>
+                <li><a href="/admin/add-product">Add product</a></li>
+                <li><a href="/admin">Products</a></li>
+                <li><a href="">Users</a></li>
+                <li><a href="">Orders</a></li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile_sidenav">
+        <li class="search-bar">
+            <div class="input-field">
+                <input id="search" type="search" required placeholder="Search product...">
+                <label class="label-icon" for="search"></label>
+                <i class="material-icons" onclick="closeSearchBar();">close</i>
+            </div>
+        </li>
+        <li><a href="/admin/add-product">Add product</a></li>
+        <li><a href="/admin">Products</a></li>
+        <li><a href="">Users</a></li>
+        <li><a href="">Orders</a></li>
+    </ul>
+</div>
