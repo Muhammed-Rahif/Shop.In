@@ -1,23 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { getProducts } from "../../helpers/api";
 import CircleLoading from "../CircleLoading/CircleLoading";
 import ProductCard from "../ProductCard/ProductCard";
+import { SearchProductContext } from "../../contexts/Contexts";
 import "./HomeContent.css";
 
-function HomeContent(props) {
+let productsList = new Array();
+
+function HomeContent() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const { searchProduct } = useContext(SearchProductContext);
 
   useEffect(() => {
     getProducts()
       .then((products) => {
         setProducts(products);
+        productsList = products;
         setLoading(false);
       })
       .catch((err) => {
         setLoading(false);
       });
   }, []);
+
+  useEffect(() => {
+    let filteredProducts = products;
+    if (searchProduct) {
+      let query = searchProduct.toLowerCase();
+      filteredProducts = productsList.filter(
+        (product) =>
+          product.name.toLowerCase().includes(query) ||
+          product.description.toLowerCase().includes(query) ||
+          product.price.toString().includes(query)
+      );
+    }
+    setProducts(filteredProducts);
+  }, [searchProduct]);
 
   return (
     <section id="home_content">
@@ -41,6 +61,11 @@ function HomeContent(props) {
             </div>
           );
         })}
+        {products.length === 0 && !loading && (
+          <center className="no-products-wrapper">
+            <b>No products found!</b>
+          </center>
+        )}
       </div>
     </section>
   );

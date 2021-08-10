@@ -25,3 +25,21 @@
   color: var(--light);
   margin: 0 0 0 0;
 }
+
+.search-bar {
+  width: max-content;
+  margin: auto;
+}
+
+.search-bar:not(:focus) input[type="search"] {
+  color: var(--light);
+}
+
+.search-bar input[type="search"]:focus::placeholder {
+  color: var(--dark);
+}
+
+#mob_sidenav input[type="search"],
+#mob_sidenav input[type="search"]::placeholder {
+  color: #444;
+}

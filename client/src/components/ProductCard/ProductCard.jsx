@@ -36,7 +36,7 @@ function ProductCard({
             {title}
             <i className="material-icons right">more_vert</i>
           </span>
-          <p>Price : Rs.{price}</p>
+          <p>Price : ₹ {price}</p>
           <span className="product-type grey-text text-darken-4">
             Type : {type}
           </span>

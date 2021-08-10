@@ -8,3 +8,9 @@
   display: grid;
   place-content: center;
 }
+
+#home_content .no-products-wrapper {
+  height: 80vh;
+  display: grid;
+  place-content: center;
+}

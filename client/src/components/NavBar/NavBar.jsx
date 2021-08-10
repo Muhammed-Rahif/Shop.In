@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
+import { SearchProductContext } from "../../contexts/Contexts";
 
 function NavBar(props) {
+  const { searchProduct, setSearchProduct } = useContext(SearchProductContext);
+
   return (
     <>
       <div className="navbar-fixed">
@@ -12,10 +15,33 @@ function NavBar(props) {
               <img src="logo512.png" alt="Shop.In" width="50" />
               <span className="logo-text">Shop.In</span>
             </Link>
-            <a href="./" data-target="mob-sidenav" className="sidenav-trigger">
+            <a href="./" data-target="mob_sidenav" className="sidenav-trigger">
               <i className="material-icons">menu</i>
             </a>
             <ul className="right hide-on-med-and-down">
+              <div className="search-bar left">
+                <div className="input-field">
+                  <input
+                    id="search"
+                    type="search"
+                    required
+                    placeholder="Search product..."
+                    onChange={(e) => setSearchProduct(e.target.value)}
+                    value={searchProduct}
+                  />
+                  <label className="label-icon" htmlFor="search">
+                    <i className="material-icons">search</i>
+                  </label>
+                  <i
+                    className="material-icons"
+                    onClick={() => {
+                      setSearchProduct("");
+                    }}
+                  >
+                    close
+                  </i>
+                </div>
+              </div>
               <li>
                 <Link to="/cart">
                   Cart<span className="new badge">1</span>
@@ -49,7 +75,28 @@ function NavBar(props) {
           <Link to="/">Logout</Link>
         </li>
       </ul>
-      <ul className="sidenav" id="mob-sidenav">
+      <ul className="sidenav" id="mob_sidenav">
+        <li className="search-bar">
+          <div className="input-field">
+            <input
+              id="search"
+              type="search"
+              required
+              placeholder="Search product..."
+              onChange={(e) => setSearchProduct(e.target.value)}
+              value={searchProduct}
+            />
+            <label className="label-icon" htmlFor="search"></label>
+            <i
+              className="material-icons"
+              onClick={() => {
+                setSearchProduct("");
+              }}
+            >
+              close
+            </i>
+          </div>
+        </li>
         <li>
           <Link to="/cart">Cart</Link>
         </li>

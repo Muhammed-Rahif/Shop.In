@@ -68,8 +68,8 @@ table td.description {
   color: var(--dark);
 }
 
-#mobile_sidenav input[type="search"],
-#mobile_sidenav input[type="search"]::placeholder {
+#mob_sidenav input[type="search"],
+#mob_sidenav input[type="search"]::placeholder {
   color: #444;
 }
 
